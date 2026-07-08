@@ -7,6 +7,7 @@ import registerImage from "../assets/images/register-image.png";
 import { doc, setDoc } from "firebase/firestore";
 import { db,auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/layout/Navbar";
 
 
 
@@ -57,6 +58,8 @@ const onSubmit = async (data: RegisterForm) => {
 };
 
   return (
+    <>
+      <Navbar />
     <AuthLayout image={registerImage}>
       <h1 className="text-5xl font-bold mb-3">
         Sign up
@@ -104,7 +107,7 @@ const onSubmit = async (data: RegisterForm) => {
             )}
           </div>
 
-        </div>
+        </div><br></br>
 
         <div>
           <input
@@ -125,7 +128,7 @@ const onSubmit = async (data: RegisterForm) => {
               {errors.email.message}
             </p>
           )}
-        </div>
+        </div><br></br>
 
         <label className="flex items-center gap-3 text-sm">
           <input
@@ -152,7 +155,7 @@ const onSubmit = async (data: RegisterForm) => {
             {errors.agree.message}
           </p>
         )}
-
+       <br></br>
         <Button disabled={isSubmitting}>
           Create account
         </Button>
@@ -169,6 +172,7 @@ const onSubmit = async (data: RegisterForm) => {
         </Link>
       </p>
     </AuthLayout>
+    </>
   );
 }
 

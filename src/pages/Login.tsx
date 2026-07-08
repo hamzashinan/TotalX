@@ -55,19 +55,19 @@ function Login() {
    <AuthLayout image={loginImage}>
    
 
-      <h1 className="text-5xl font-bold mb-4">
-        Login
-      </h1>
+      <h1 className="text-[48px] font-bold leading-tight">
+  Login
+</h1>
 
-      <p className="text-gray-500 mb-8">
-        Login to access your TotalX account
-      </p>
+<p className="mt-2 text-sm text-gray-500">
+  Login to access your TotalX account
+</p><br></br>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
         <input
           type="text"
           placeholder="Enter mobile number"
-          className="w-full h-12 rounded-lg border px-4"
+          className="h-12 w-full rounded-md border border-gray-300 px-4 text-sm focus:border-indigo-500 focus:outline-none"
           {...register("phone", {
             required: "Phone number is required",
             pattern: {
@@ -76,21 +76,23 @@ function Login() {
             },
           })}
         />
+        
 
         {errors.phone && (
           <p className="text-red-500 mt-2">
             {errors.phone.message}
           </p>
-        )}
+        )} 
+        
 
-        <div className="mt-6">
+        <div  className="h-12 w-full rounded-md">
           <Button disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Get OTP"}
           </Button>
-        </div>
+        </div><br></br>
       </form>
 
-      <p className="mt-8 text-center text-sm">
+      <p className="mt-6 text-center text-sm text-gray-600">
         Don't have an account?
         <Link to="/register"className="text-indigo-600 ml-1 font-semibold">
        Sign Up
